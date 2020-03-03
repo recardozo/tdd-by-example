@@ -1,4 +1,4 @@
-package com.example.tdd;
+package com.example.tdd.bank;
 
 public interface MoneyExpression {
     Money reduce(Bank bank,String to);

@@ -1,5 +1,9 @@
 package com.example.tdd;
 
+import com.example.tdd.bank.Bank;
+import com.example.tdd.bank.Money;
+import com.example.tdd.bank.MoneyExpression;
+import com.example.tdd.bank.Sum;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -35,8 +39,6 @@ public class MoneyTest {
         Money five=Money.dollar(5);
         MoneyExpression result=five.plus(five);
         Sum sum= (Sum)result;
-        assertEquals(five,sum.addmend);
-        assertEquals(five,sum.augmend);
     }
 
     @Test

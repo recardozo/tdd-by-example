@@ -1,4 +1,4 @@
-package com.example.tdd;
+package com.example.tdd.bank;
 
 public class Sum implements MoneyExpression {
     MoneyExpression augmend;
