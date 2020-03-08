@@ -9,16 +9,32 @@ public class ValidateIsbn {
         checkISBNSize(isbnNumber);
 
         for (int i = 0; i < isbnNumber.length(); i++) {
-            total += isbnNumber.charAt(i) * (isbnNumber.length() - i);
+
+            if (!Character.isDigit(isbnNumber.charAt(i))) {
+                if (Objects.equals(i, 9) && Objects.equals(isbnNumber.charAt(i), 'X')) {
+                    total += 10;
+                } else {
+                    throw new NumberFormatException("Número ISBN tem que ter dez caracteres");
+                }
+            } else {
+                total += Character.getNumericValue(isbnNumber.charAt(i)) * (isbnNumber.length() - i);
+            }
         }
         return total % 11 == 0;
     }
 
     private void checkISBNSize(String isbnNumber) {
-        if (!Objects.equals(isbnNumber.length(),10)) {
+        if (!Objects.equals(isbnNumber.length(), 10)) {
             throw new NumberFormatException("Número ISBN tem que ter dez caracteres");
         }
+    }
 
-        Integer.parseInt(isbnNumber);
+    private void checkISBNCharacteres(String isbnNumber, int index) {
+        if (!Character.isDigit(isbnNumber.charAt(index))) {
+            if (!Objects.equals(index, 9) && !Objects.equals(isbnNumber.charAt(index), 'X')) {
+                throw new NumberFormatException("Número ISBN tem que ter dez caracteres");
+            }
+
+        }
     }
 }

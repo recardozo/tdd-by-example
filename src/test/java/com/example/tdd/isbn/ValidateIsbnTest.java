@@ -41,4 +41,11 @@ class ValidateIsbnTest {
         boolean result=validateIsbn.checkISBNNumber("0140447116");
         assertFalse(result);
     }
+
+    @Test
+    void checkISBNNumberEndingInXAreValid(){
+        ValidateIsbn validateIsbn= new ValidateIsbn();
+        boolean result=validateIsbn.checkISBNNumber("012000030X");
+        assertTrue(result);
+    }
 }
